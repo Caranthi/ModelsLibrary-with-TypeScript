@@ -1,0 +1,22 @@
+.Header {
+    display: flex;
+    background-image: url("../HeaderImage.jpg");
+    background-position: center;
+    width: 74%;
+    height: 150px;
+    margin-left: 13%;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.HeaderTitle {
+    font-size: 42px;
+    font-family: Alef;
+    cursor: pointer;
+    margin: 0;
+}
+
+.HeaderInput {
+    height: 35%;
+    font-size: 30px;
+}
