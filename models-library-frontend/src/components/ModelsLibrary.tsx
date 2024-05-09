@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import {subscribe} from "../events";
 import InitialPopup from "./InitialPopup";
 import Models from "./Models";
+import ErrorForm from "./ErrorForm";
 
 const ModelsLibrary = () => {
     const [filteredSpecies, setFilteredSpecies] = useState<string>('');
@@ -24,6 +25,7 @@ const ModelsLibrary = () => {
             <InitialPopup/>
             <Header/>
             <Models filteredSpecies={filteredSpecies}/>
+            <ErrorForm error={error}/>
         </div>
     );
 }

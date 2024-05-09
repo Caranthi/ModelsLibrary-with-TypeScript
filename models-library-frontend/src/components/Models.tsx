@@ -40,10 +40,10 @@ const Models = (props: { filteredSpecies: string; }) => {
                         weight: initialWeights[i]
                     };
 
-                    axios.post('http://localhost:8080/', modelData).then((response) => {
+                    axios.post('http://localhost:8080/', modelData).then((response: AxiosResponse<any>) => {
                         console.log('Added model: ', response.data);
                     }).then(() => {
-                        axios.get('http://localhost:8080/').then((response) => {
+                        axios.get('http://localhost:8080/').then((response: AxiosResponse<any>) => {
                             console.log('Initial Models: ', response.data);
                             setInitialModels(response.data);
                         });
@@ -71,10 +71,10 @@ const Models = (props: { filteredSpecies: string; }) => {
         window.open(searchURL, '_blank');
     };
     const deleteModel = (id: number) => {
-        axios.delete(`http://localhost:8080/${id}`).then((response) => {
+        axios.delete(`http://localhost:8080/${id}`).then((response: AxiosResponse<any>) => {
             console.log(response.data);
 
-            axios.get('http://localhost:8080/').then((response) => {
+            axios.get('http://localhost:8080/').then((response: AxiosResponse<any>) => {
                 console.log('Models: ', response.data);
                 setCurrentModels(response.data);
             }).catch(error => {
@@ -89,12 +89,12 @@ const Models = (props: { filteredSpecies: string; }) => {
     const add = () => {
         let modelData = {species: newSpecies, colour: newColour, firstAppearance: firstAppearance, weight: newWeight};
 
-        axios.post('http://localhost:8080/', modelData).then((response) => {
+        axios.post('http://localhost:8080/', modelData).then((response: AxiosResponse<any>) => {
             console.log('Added model: ', response.data);
 
-            axios.get('http://localhost:8080/').then((response) => {
+            axios.get('http://localhost:8080/').then((response: AxiosResponse<any>) => {
                 console.log('Models: ', response.data);
-                setCurrentModels(response.data);
+                setInitialModels(response.data);
 
                 clearInputs();
             });
